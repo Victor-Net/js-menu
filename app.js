@@ -75,7 +75,7 @@ const card = [
   },
   {
     // id: 10,
-    title: "creamsoup",
+    title: "Card Title",
     type: "Beverages",
     price: 1000,
     img: "./images/rice1.jpg",
