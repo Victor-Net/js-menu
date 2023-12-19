@@ -3,106 +3,106 @@
 const card = [
   {
     // id: 1,
-    title: "Card Title",
-    type: "Main",
+    title: "Snack1",
+    type: "Snacks",
     price: 1000,
-    img: "./images/rice1.jpg",
+    img: "./imgs/img-1.jpg",
     info: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque illum dolor, quaerat eius dignissimos voluptatem aperiam.`,
   },
   {
     // id: 2,
-    title: "Card Title",
-    type: "Snacks",
+    title: "Main1",
+    type: "Main",
     price: 1000,
-    img: "./images/samosas.jpg",
+    img: "./imgs/img-2.jpg",
     info: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque illum dolor, quaerat eius dignissimos voluptatem aperiam.`,
   },
   {
     // id: 3,
-    title: "Card Title",
+    title: "Snack2",
     type: "Snacks",
     price: 1000,
-    img: "./images/baconeggs.jpg",
+    img: "./imgs/img-3.jpg",
     info: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque illum dolor, quaerat eius dignissimos voluptatem aperiam.`,
   },
   {
     // id: 4,
-    title: "Card Title",
+    title: "Main2",
     type: "Main",
     price: 1000,
-    img: "./images/ricenbeef.jpg",
+    img: "./imgs/img-4.jpg",
     info: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque illum dolor, quaerat eius dignissimos voluptatem aperiam.`,
   },
   {
     // id: 5,
-    title: "Card Title",
+    title: "Coffee",
     type: "Beverages",
     price: 1000,
-    img: "./images/tomatosoup.jpg",
+    img: "./imgs/img-5.jpg",
     info: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque illum dolor, quaerat eius dignissimos voluptatem aperiam.`,
   },
   {
     // id: 6,
-    title: "Card Title",
+    title: "Main3",
     type: "Main",
     price: 1000,
-    img: "./images/steaktray.jpg",
+    img: "./imgs/img-6.jpg",
     info: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque illum dolor, quaerat eius dignissimos voluptatem aperiam.`,
   },
   {
     // id: 7,
-    title: "Card Title",
+    title: "Main4",
     type: "Main",
     price: 1000,
-    img: "./images/lasagna.jpg",
+    img: "./imgs/img-7.jpg",
     info: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque illum dolor, quaerat eius dignissimos voluptatem aperiam.`,
   },
   {
     // id: 8,
-    title: "Card Title",
+    title: "Snack3",
     type: "Snacks",
     price: 1000,
-    img: "./images/friezbowl.jpg",
+    img: "./imgs/img-8.jpg",
     info: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque illum dolor, quaerat eius dignissimos voluptatem aperiam.`,
   },
   {
     // id: 9,
-    title: "Card Title",
+    title: "Snack4",
     type: "Snacks",
     price: 1000,
-    img: "./images/burgernfriez.jpg",
+    img: "./imgs/img-9.jpg",
     info: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque illum dolor, quaerat eius dignissimos voluptatem aperiam.`,
   },
   {
     // id: 10,
-    title: "Card Title",
+    title: "Tea",
     type: "Beverages",
     price: 1000,
-    img: "./images/rice1.jpg",
+    img: "./imgs/img-10.jpg",
     info: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque illum dolor, quaerat eius dignissimos voluptatem aperiam.`,
   },
   {
     // id: 11,
-    title: "Card Title",
+    title: "Juice",
     type: "Beverages",
     price: 1000,
-    img: "./images/buttersoup.jpg",
+    img: "./imgs/img-11.jpg",
     info: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque illum dolor, quaerat eius dignissimos voluptatem aperiam.`,
   },
   {
     // id: 12,
-    title: "Card Title",
+    title: "Shake",
     type: "Beverages",
     price: 1000,
-    img: "./images/steaknchips.jpg",
+    img: "./imgs/img-12.jpeg",
     info: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque illum dolor, quaerat eius dignissimos voluptatem aperiam.`,
   },
   {
     // id: 13,
-    title: "Card Title",
+    title: "Snack5",
     type: "Snacks",
     price: 1000,
-    img: "./images/eggroll.jpg",
+    img: "./imgs/img-13.jpg",
     info: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque illum dolor, quaerat eius dignissimos voluptatem aperiam.`,
   },
 ];
@@ -115,19 +115,23 @@ const btnsEl = document.querySelector(".btns");
 window.addEventListener("DOMContentLoaded", function () {
   showMenuCards(card); // shows menu cards
   showBtns(); // to show btns;
+  if (type === "All") {
+    item.classList.add("active");
+  }
 });
 
 function showMenuCards(items) {
   let showCard = items.map(function (item) {
     return `<div class="card">
-          <img src=${item.img} alt="" />
-          <div class="card-info">
-            <h2 class="title">${item.title}</h2>
-            <p class="info">${item.info}
-            </p>
-            <p class="price">Kshs. ${item.price}/-</p>
-          </div>
-        </div>`;
+        <div class="img-container">
+          <img src="${item.img}" alt="" />
+        </div>
+        <div class="card-info">
+          <h2 class="title">${item.title}</h2>
+          <p class="info">${item.info}</p>
+          <p class="price">Kshs. ${item.price}/-</p>
+        </div>
+      </div>`;
   });
   showCard = showCard.join("");
   menuContainer.innerHTML = showCard;
@@ -159,7 +163,7 @@ function showBtns() {
 
   typeBtn.forEach(function (btn) {
     btn.addEventListener("click", function (e) {
-      console.log(e.currentTarget.dataset.type); // on main "Main" is logged out instaed of Main and consquently no cards are displayed under Main. For now I'll have to change Main type just to Main. Future fix: Display cards under Main while type remians as Main Dishes in array objects
+      console.log(e.currentTarget.dataset.type); // on main "Main" is logged out instead of Main and consequently no cards are displayed under Main. For now I'll have to change Main type just to Main. Future fix: Display cards under Main while type remains as Main Dishes in array objects
       const type = e.currentTarget.dataset.type;
       const cardType = card.filter(function (cardItem) {
         if (cardItem.type === type) {
@@ -178,7 +182,9 @@ function showBtns() {
         item.classList.remove("active");
       });
       btn.classList.add("active"); //😂😂😂 nov22nd14:30
+      // if (typeBtn ==) {
 
+      // }
     });
   });
 }
